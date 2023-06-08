@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Link, useSearchParams } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 import axios from 'axios';
 import List from '../components/List';
 
@@ -35,7 +35,7 @@ export default function AlbumSearch() {
 
 	return (
 		<>
-			這是搜尋頁面 {search}
+			這是搜尋頁面
 			<input
 				type="text"
 				className="form-control"

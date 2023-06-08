@@ -1,4 +1,4 @@
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 
@@ -8,6 +8,7 @@ const accessKey = process.env.REACT_APP_UNSPLASH_ACCESS;
 export default function AlbumPhoto() {
 	const { id } = useParams();
 	const [photo, setPhoto] = useState({});
+	const navigate = useNavigate();
 
 	useEffect(() => {
 		(async () => {
@@ -18,9 +19,17 @@ export default function AlbumPhoto() {
 
 	return (
 		<div>
-			這是單張圖片
+			<button
+				type="button"
+				onClick={() => {
+					navigate(-1);
+				}}
+			>
+				回到上一頁
+			</button>
+			<h2 className="mt-3">這是單張圖片</h2>
 			<br />
-			<p>{photo.description}</p>
+			<p>Description: {photo.description}</p>
 			<img src={photo?.urls?.regular} className="img-fluid" alt="" />
 		</div>
 	);
